@@ -9,6 +9,15 @@ class Casino(models.Model):
     url = models.URLField()
     city = models.CharField(max_length=200, blank=True)
     state = models.CharField(max_length=30, blank=True)
+    lat = models.FloatField(null=True)
+    lon = models.FloatField(null=True)
+    num_slots = models.IntegerField(default=0)
+    num_table_games = models.IntegerField(default=0)
+    num_hotel_rooms = models.IntegerField(default=0)
+    poker = models.BooleanField(default=False)
+    keno = models.BooleanField(default=False)
+    bingo = models.BooleanField(default=False)
+
     scraper = models.ForeignKey(Scraper, blank=True, null=True, on_delete=models.SET_NULL)
     scraper_runtime = models.ForeignKey(SchedulerRuntime, blank=True, null=True, on_delete=models.SET_NULL)
 
