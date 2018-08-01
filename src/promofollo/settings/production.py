@@ -9,6 +9,7 @@ TEMPLATE_DEBUG = False
 
 # Strict password authentication and validation
 # To use this setting, install the Argon2 password hashing algorithm.
+'''
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
@@ -16,6 +17,7 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     'django.contrib.auth.hashers.BCryptPasswordHasher',
 ]
+'''
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -32,7 +34,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Must mention ALLOWED_HOSTS in production!
-ALLOWED_HOSTS = ['127.0.0.1', 'promofollo-123.appspot.com']
+ALLOWED_HOSTS = ['35.197.109.16', 'localhost', '127.0.0.1']
 
 
 # Cache the templates in memory for speed-up

@@ -13,6 +13,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / "directory"
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 STATICFILES_DIRS = [str(BASE_DIR / 'static'), ]
+STATIC_ROOT = str(BASE_DIR.parent / 'site' / 'static')
+STATIC_URL = '/static/'
 MEDIA_ROOT = str(BASE_DIR / 'media')
 MEDIA_URL = "/media/"
 
