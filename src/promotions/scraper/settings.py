@@ -1,6 +1,6 @@
 import os
 import datetime
-from promofollo.settings.base import STATICFILES_DIRS
+from promofollo.settings.base import MEDIA_ROOT
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "promofollo.settings.base") #Changed in DDS v.0.3
@@ -16,7 +16,8 @@ ITEM_PIPELINES = {
     'promotions.scraper.pipelines.DjangoWriterPipeline': 800,
 }
 
-IMAGES_STORE = os.path.join(STATICFILES_DIRS[0], 'promo_images')
+#IMAGES_STORE = os.path.join(MEDIA_ROOT, 'promo_images')
+IMAGES_STORE = MEDIA_ROOT
 
 IMAGES_THUMBS = {
     'medium': (350, 350),
@@ -24,6 +25,7 @@ IMAGES_THUMBS = {
 }
 
 DSCRAPER_IMAGES_STORE_FORMAT = 'ALL'
+
 
 DSCRAPER_LOG_ENABLED = True
 DSCRAPER_LOG_LEVEL = 'ERROR'

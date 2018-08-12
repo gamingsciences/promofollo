@@ -13,8 +13,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / "directory"
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 STATICFILES_DIRS = [str(BASE_DIR / 'static'), ]
-STATIC_ROOT = str(BASE_DIR.parent / 'site' / 'static')
-STATIC_URL = '/static/'
 MEDIA_ROOT = str(BASE_DIR / 'media')
 MEDIA_URL = "/media/"
 
@@ -144,3 +142,10 @@ THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails
 
 import djcelery
 djcelery.setup_loader()
+BROKER_HOST = "localhost"
+BROKER_PORT = 5672
+BROKER_BACKEND = "django"
+BROKER_USER = "guest"
+BROKER_PASSWORD = "guest"
+BROKER_VHOST = "/"
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'

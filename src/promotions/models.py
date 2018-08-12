@@ -1,7 +1,9 @@
 from django.db import models
+from django.utils.safestring import mark_safe
 import tagulous
 from dynamic_scraper.models import Scraper, SchedulerRuntime
 from scrapy_djangoitem import DjangoItem
+from promofollo.settings.base import MEDIA_URL
 
 
 class Casino(models.Model):
@@ -30,7 +32,7 @@ class Promotion(models.Model):
     casino = models.ForeignKey(Casino, on_delete=models.CASCADE)
     description = models.TextField(blank=True)
     url = models.URLField(blank=True, null=True)
-    image = models.ImageField(upload_to='promo_images', blank=True, null=True)
+    image_file = models.CharField(max_length=200, blank=True)
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     recuring = models.BooleanField(default=False)
@@ -40,6 +42,14 @@ class Promotion(models.Model):
 
     def __str__(self):
         return self.title
+
+    def image_full(self):
+        if self.image_file:
+            return mark_safe('<img src="%s"  />' % "{}/{}/{}".format(MEDIA_URL, 'full', self.image_file))
+        else:
+            return 'No Image Found'
+    image_full.short_description = 'promo image'
+    #return "{}/{}/{}".format(MEDIA_ROOT, 'full', self.image_file)
 
 class PromotionItem(DjangoItem):
     django_model = Promotion
