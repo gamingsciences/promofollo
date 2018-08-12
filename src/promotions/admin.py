@@ -13,7 +13,7 @@ class CasinoAdmin(admin.ModelAdmin):
     url_.allow_tags = True
 
 class PromotionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'casino', 'url_',)
+    list_display = ('id', 'title', 'casino', 'image_small', 'url_',)
     list_display_links = ('title',)
     list_filter = ('reviewed',)
     raw_id_fields = ('checker_runtime',)
