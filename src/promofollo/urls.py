@@ -12,6 +12,7 @@ admin.site.site_header = 'Promofollo Administration'
 
 urlpatterns = [
     path('', views.HomePage.as_view(), name='home'),
+    path('promotions/', include('promotions.urls')),
     path('about/', views.AboutPage.as_view(), name='about'),
     path('users/', include(profiles.urls)),
     path('admin/', admin.site.urls),
