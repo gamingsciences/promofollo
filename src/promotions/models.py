@@ -11,6 +11,8 @@ class Casino(models.Model):
     url = models.URLField()
     city = models.CharField(max_length=200, blank=True)
     state = models.CharField(max_length=30, blank=True)
+    zip_code = models.CharField(max_length=15, blank=True)
+    logo = models.ImageField(upload_to='casino_logos', blank=True, null=True)
     lat = models.FloatField(null=True)
     lon = models.FloatField(null=True)
     num_slots = models.IntegerField(default=0)
