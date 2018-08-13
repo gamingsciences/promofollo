@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.safestring import mark_safe
+from django.utils import timezone
 import tagulous
 from dynamic_scraper.models import Scraper, SchedulerRuntime
 from scrapy_djangoitem import DjangoItem
@@ -25,6 +26,12 @@ class Casino(models.Model):
     scraper = models.ForeignKey(Scraper, blank=True, null=True, on_delete=models.SET_NULL)
     scraper_runtime = models.ForeignKey(SchedulerRuntime, blank=True, null=True, on_delete=models.SET_NULL)
 
+    def get_logo(self):
+        if self.logo:
+            return mark_safe('<img src="%s" width=65 height=55/>' % self.logo.url)
+        else:
+            return 'No Logo Found'
+
     def __str__(self):
         return self.name
 
@@ -40,6 +47,7 @@ class Promotion(models.Model):
     recuring = models.BooleanField(default=False)
     tags = tagulous.models.TagField(blank=True, null=True)
     reviewed = models.BooleanField(default=False)
+    date_created = models.DateField(default=timezone.now)
     checker_runtime = models.ForeignKey(SchedulerRuntime, blank=True, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):

@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 from .models import Casino, Promotion
 
 class CasinoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'url_', 'scraper')
+    list_display = ('id', 'get_logo', 'name', 'url_', 'scraper')
     list_display_links = ('name',)
 
     def url_(self, instance):
