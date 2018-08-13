@@ -16,8 +16,7 @@ ITEM_PIPELINES = {
     'promotions.scraper.pipelines.DjangoWriterPipeline': 800,
 }
 
-#IMAGES_STORE = os.path.join(MEDIA_ROOT, 'promo_images')
-IMAGES_STORE = MEDIA_ROOT
+IMAGES_STORE = os.path.join(MEDIA_ROOT, 'promo_images')
 
 IMAGES_THUMBS = {
     'medium': (350, 350),

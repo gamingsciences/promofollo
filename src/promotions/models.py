@@ -46,21 +46,21 @@ class Promotion(models.Model):
     def image_full(self):
         if self.image_file:
             return mark_safe('<img src="%s" />' % "{}/{}/{}".format(MEDIA_URL,
-                'full', self.image_file))
+                'promo_images/full', self.image_file))
         else:
             return 'No Image Found'
 
     def image_medium(self):
         if self.image_file:
             return mark_safe('<img src="%s" />' % "{}/{}/{}".format(MEDIA_URL,
-                'thumbs/medium', self.image_file))
+                'promo_images/thumbs/medium', self.image_file))
         else:
             return 'No Image Found'
 
     def image_small(self):
         if self.image_file:
             return mark_safe('<img src="%s" />' % "{}/{}/{}".format(MEDIA_URL,
-                'thumbs/small', self.image_file))
+                'promo_images/thumbs/small', self.image_file))
         else:
             return 'No Image Found'
 

@@ -58,5 +58,4 @@ Desktop.ini
 
 # Project settings
 ./site/
-./src/media/fullX
-.src/media/thumbsX
+./src/media/promo_images/
