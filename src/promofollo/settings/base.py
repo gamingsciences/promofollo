@@ -16,6 +16,10 @@ STATICFILES_DIRS = [str(BASE_DIR / 'static'), ]
 MEDIA_ROOT = str(BASE_DIR / 'media')
 MEDIA_URL = "/media/"
 
+# Define STATIC_ROOT for the collectstatic command
+STATIC_ROOT = str(BASE_DIR.parent / 'site' / 'static')
+
+
 # Use Django templates using the new Django 1.8 TEMPLATES settings
 TEMPLATES = [
     {
